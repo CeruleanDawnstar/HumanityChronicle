@@ -1,0 +1,52 @@
+.footer {
+
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.newsletter {
+    width: 30%;
+}
+
+#fGauche {
+    float : left;
+    width : 40%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+#fDroite {
+    float : right;
+    width : 40%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+/* Page Contact*/
+label#labeltitremsg, label#labelmsg {
+    margin-top: 15px;
+}
+
+input#inputtitremsg, textarea#textareamsg {
+    margin-bottom: 20px;
+    width: 30%;
+}
+
+#labeltitremsg, #labelmsg, #inputtitremsg, #textareamsg, #submit, .pcontact {
+    margin-left: 5%;
+}
+
+/* Page à propos */
+#teest {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+
+/* Page RGPD */
+#divrgpd {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+

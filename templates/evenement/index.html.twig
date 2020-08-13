@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Index des Évenements{% endblock %}
+
+{% block body %}
+    <h3>Index des Évenements</h3>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Titre</th>
+            <th>Extrait</th>
+            <th>Detail</th>
+            <th>ImgUrl</th>
+            <th>Epoque</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for evenement in evenements %}
+            <tr>
+                <td>{{ evenement.id }}</td>
+                <td>{{ evenement.titre }}</td>
+                <td>{{ evenement.extrait }}</td>
+                <td>{{ evenement.detail }}</td>
+                <td><img src="{{ asset('img/events/' ~ evenement.imgUrl) }}" alt="{{ evenement.titre }}" width="150"></td>
+                <td>{{ evenement.epoque }}</td>
+                <td>
+                    <button type="button" class="btn btn-outline-warning">
+                        <a href="{{ path('evenement_show', {'id': evenement.id}) }}">Details</a>
+                    </button>
+                    <button type="button" class="btn btn-outline-warning">
+                        <a href="{{ path('evenement_edit', {'id': evenement.id}) }}">Modifier</a>
+                    </button>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <button type="button" class="btn btn-outline-warning"><a href="{{ path('evenement_new') }}">Créer Évenement</a>
+    </button>
+{% endblock %}

@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
+
+    <link href="{{ asset('css/navbar.css') }}" rel="stylesheet"  />
+    <link href="{{ asset('css/global.css') }}" rel="stylesheet"  />
+    <link href="{{ asset('css/list.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/footer.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/card.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/detail.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/crud.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/loginForm.css') }}" rel="stylesheet" />
+
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+
+<nav id="navGlobal" class="navbar navbar-expand-lg navbar-light bg-secondary">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <a href="/"><img class="imglogo" src="{{ asset('img/logo.png') }}" alt=""></a>
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="text-warning" href="/">Accueil<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="text-warning" href="/invent/list">Inventions Majeures</a>
+            </li>
+            <li class="nav-item">
+                <a class="text-warning" href="/event/list">Evènements Importants</a>
+            </li>
+            <li class="nav-item">
+                <a class="text-warning" href="/anecdote">Anecdotes</a>
+            </li>
+        </ul>
+
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <a class="text-warning" href="/logout">Déconnexion</a>
+        {% endif %}
+
+
+
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Recherche" aria-label="Search">
+            <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Rechercher</button>
+        </form>
+    </div>
+</nav>
+
+
+{% block body %}
+    {% endblock %}
+
+
+    {% block footer %}
+<div class="footer">
+
+    <div id="fGauche">
+        <p></p>
+        <h5>Roadmap</h5>
+        <ul>
+            <li><a href="/invent">Inventions Majeures</a></li>
+            <li><a href="/event">Evènements Importants</a></li>
+            <li><a href="/anecdote">Anecdotes</a></li>
+        </ul>
+    </div>
+
+
+    <div id="fDroite">
+        <p></p>
+        <h5>Liens pratiques</h5>
+        <ul>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/apropos">A propos</a></li>
+            <li><a href="/rgpd">RGPD</a></li>
+        </ul>
+
+        <p>Si vous voulez vous abonner à notre newsletter, vous pouvez renseigner votre adresse mail dans le champ ci-dessous. Vous serez informé à chaque nouvel ajout de contenu.</p>
+
+        <h5>Inscription à la newsletter</h5>
+        <input type="email" class="form-control" id="newsletter" placeholder="email@example.com">
+
+    </div>
+    {% endblock %}
+
+</div>
+</body>
+</html>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js" integrity="sha384-XEerZL0cuoUbHE4nZReLT7nx9gQrQreJekYhJD9WNWhH8nEW+0c5qq7aIo2Wl30J" crossorigin="anonymous"></script>

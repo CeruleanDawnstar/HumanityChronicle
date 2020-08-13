@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer une nouvelle Invention{% endblock %}
+
+{% block body %}
+    <h3>Créer une nouvelle Invention</h3>
+
+    {{ include('invention/_form.html.twig') }}
+
+    <button type="button" class="btn btn-outline-warning"><a href="{{ path('invention_index') }}">Retour à la liste</a></button>
+{% endblock %}

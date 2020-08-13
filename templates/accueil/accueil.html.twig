@@ -1,0 +1,64 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Les Chroniques de l'Humanité{% endblock %}
+
+{% block body %}
+<div id="global">
+
+
+    <div class="toppage">
+        <h3 class="display-5">Les Chroniques de l'Humanité</h3>
+        <p class="lead">L'épée ou la plume ? Ce site est dédié à vous montrer que l'une n'est pas meilleure que l'autre.</p>
+
+        <p id="intro">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque auctor erat sed lacinia tristique. Etiam eu nibh vehicula, cursus ipsum vel, efficitur quam. In cursus magna erat, in dictum nibh mattis nec. Duis a pulvinar turpis. Suspendisse vehicula, justo tincidunt fermentum scelerisque, erat erat ullamcorper nulla, at semper odio nibh vel tellus. Ut tristique facilisis tortor, id sagittis sapien pharetra pellentesque. Maecenas nec augue iaculis, interdum dolor in, finibus quam. Nam faucibus, enim ut convallis pellentesque, dui eros imperdiet diam, vitae lacinia mauris arcu in orci. Duis pretium id magna ac egestas. </p>
+        <hr class="my-4">
+        <!-- <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a> -->
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img id="imgslide1" src="{{ asset('img/worldmap.jpg') }}" class="d-block w-100" alt="slide1">
+                </div>
+                <div class="carousel-item">
+                    <img id="imgslide2" src="{{ asset('img/multicanon.jpg') }}" class="d-block w-100" alt="slide2">
+                </div>
+                <div class="carousel-item">
+                    <img id="imgslide3" src="{{ asset('img/crossbow.jpg') }}" class="d-block w-100" alt="slide3">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
+
+        <div id="recap">
+
+            <div id="recapInvent">
+                <img class="imgRecap" src="{{ asset('img/visAero.jpg') }}" alt="">
+                <h3>Les inventions</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque auctor erat sed lacinia tristique. Etiam eu nibh vehicula, cursus ipsum vel, efficitur quam. In cursus magna erat, in dictum nibh mattis nec. Duis a pulvinar turpis. Suspendisse vehicula, justo tincidunt fermentum scelerisque, erat erat ullamcorper nulla, at semper odio nibh vel tellus. Ut tristique facilisis tortor, id sagittis sapien pharetra pellentesque. Maecenas nec augue iaculis, interdum dolor in, finibus quam. Nam faucibus, enim ut convallis pellentesque, dui eros imperdiet diam, vitae lacinia mauris arcu in orci. Duis pretium id magna ac egestas. </p>
+                <a href="/invent/list"><button type="button" class="btn btn-outline-warning">Découvrir</button></a>
+            </div>
+
+            <div id="recapEvent">
+                <img class="imgRecap" src="{{ asset('img/revolutionF.jpg') }}" alt="">
+                <h3>Les évènements</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque auctor erat sed lacinia tristique. Etiam eu nibh vehicula, cursus ipsum vel, efficitur quam. In cursus magna erat, in dictum nibh mattis nec. Duis a pulvinar turpis. Suspendisse vehicula, justo tincidunt fermentum scelerisque, erat erat ullamcorper nulla, at semper odio nibh vel tellus. Ut tristique facilisis tortor, id sagittis sapien pharetra pellentesque. Maecenas nec augue iaculis, interdum dolor in, finibus quam. Nam faucibus, enim ut convallis pellentesque, dui eros imperdiet diam, vitae lacinia mauris arcu in orci. Duis pretium id magna ac egestas. </p>
+                <a href="/event/list"><button type="button" class="btn btn-outline-warning">Découvrir</button></a>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+{% endblock %}

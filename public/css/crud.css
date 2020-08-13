@@ -1,0 +1,13 @@
+td, th {
+    color : #c2a46d;
+}
+
+button.btn {
+    color : #c2a46d;
+    border-color: #c2a46d;
+    border-width: 2px;
+}
+
+label {
+    color: #c2a46d;
+}

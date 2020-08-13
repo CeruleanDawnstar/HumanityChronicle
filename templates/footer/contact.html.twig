@@ -1,0 +1,25 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+
+    <div class="jumbotron jumbotron-fluid">
+        <h3>Contact</h3>
+        <form>
+            <p class="pcontact">Vous pouvez nous contacter par téléphone : 01.02.03.04.05</p>
+            <p class="pcontact">par mail : mail@domaine.fr</p>
+            <p class="pcontact">ou par courrier au : 123 rue de la chronique 98765</p>
+
+            <label id="labeltitremsg" for="exampleFormControlInput1">Objet de votre message</label>
+            <input id="inputtitremsg" type="text" class="form-control" id="exampleFormControlInput1">
+
+
+            <label  id="labelmsg" for="exampleFormControlTextarea1">Votre message</label>
+            <textarea id="textareamsg" class="form-control" rows="3"></textarea>
+            <button class="btn btn-outline-warning my-2 my-sm-0" id="submit" type="submit">Envoyer</button>
+
+        </form>
+
+    </div>
+{% endblock %}

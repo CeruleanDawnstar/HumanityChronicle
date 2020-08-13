@@ -1,0 +1,33 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Détail d'évènement{% endblock %}
+
+{% block body %}
+    <h3>Details Invention</h3>
+
+    <div class="card mb-3">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="{{ asset('img/inventions/'~ invention.imgUrl ~'') }}" class="card-img" alt="{{ invention.imgUrl }}">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title"> {{ invention.titre }}</h5>
+                    <p class="card-text">{{ invention.extrait }}</p>
+
+                    <a href="/invent/list"><button type="button" class="btn btn-outline-warning">Retour à la liste</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h3>Titre</h3>
+            <p>{{ invention.detail }}{{ invention.detail }}</p>
+            <p>{{ invention.detail }}{{ invention.detail }}</p>
+            <p>{{ invention.detail }}{{ invention.detail }}</p>
+            <a href="/invent/list"><button type="button" class="btn btn-outline-warning">Retour à la liste</button></a>
+        </div>
+    </div>
+{% endblock %}

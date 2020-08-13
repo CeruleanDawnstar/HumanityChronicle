@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Index des Inventions{% endblock %}
+
+{% block body %}
+    <h3>Index des Inventions</h3>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Extrait</th>
+                <th>Detail</th>
+                <th>ImgUrl</th>
+                <th>Epoque</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for invention in inventions %}
+            <tr>
+                <td>{{ invention.id }}</td>
+                <td>{{ invention.titre }}</td>
+                <td>{{ invention.extrait }}</td>
+                <td>{{ invention.detail }}</td>
+                <td><img src="{{ asset('img/inventions/' ~ invention.imgUrl) }}" alt="{{ invention.titre }}" width="150"></td>
+                <td>{{ invention.epoque }}</td>
+                <td>
+                    <button type="button" class="btn btn-outline-warning"><a href="{{ path('invention_show', {'id': invention.id}) }}">Details</a></button>
+                    <button type="button" class="btn btn-outline-warning"><a href="{{ path('invention_edit', {'id': invention.id}) }}">Modifier</a></button>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <button type="button" class="btn btn-outline-warning"><a href="{{ path('invention_new') }}">Créer Invention</a></button>
+{% endblock %}

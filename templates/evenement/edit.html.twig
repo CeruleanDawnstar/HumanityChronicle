@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification d'évenement{% endblock %}
+
+{% block body %}
+    <h3>Modification d'évenement</h3>
+
+    {{ include('evenement/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+    <button type="button" class="btn btn-outline-warning"><a href="{{ path('evenement_index') }}">Retour à la liste</a></button>
+
+    {{ include('evenement/_delete_form.html.twig') }}
+{% endblock %}

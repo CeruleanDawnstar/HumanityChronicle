@@ -1,0 +1,12 @@
+#labelemail, #labelpassword {
+    margin-top: 15px;
+}
+
+#inputEmail, #inputPassword {
+    margin-bottom: 20px;
+    width: 30%;
+}
+
+#labelemail, #labelpassword, #inputEmail, #inputPassword, #submit {
+    margin-left: 5%;
+}
