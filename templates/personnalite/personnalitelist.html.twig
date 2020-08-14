@@ -9,12 +9,12 @@
         <div class="card mb-3">
             <div class="row no-gutters">
                 <div class="col-md-4">
-                    <img src="{{ asset('img/personnalites/'~ elem.img_url ~'') }}" class="card-img" alt="{{ elem.img_url }}">
+                    <img src="{{ asset('img/personnalites/'~ elem.imgUrl ~'') }}" class="card-img" alt="{{ elem.imgUrl }}">
 
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title">{{ elem.nom }} - {{ elem.date_naissance }} - {{ elem.date_deces }}</h5>
+                        <h5 class="card-title">{{ elem.nom }} - {{ elem.dateNaissance }} - {{ elem.dateDeces }}</h5>
                         <p class="card-text">{{ elem.biographie }}</p>
                         <a href="/personnalite/{{ elem.id }}"><button type="button" class="btn btn-outline-warning">Détails</button></a>
                     </div>

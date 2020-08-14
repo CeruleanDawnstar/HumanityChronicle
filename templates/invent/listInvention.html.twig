@@ -10,12 +10,12 @@
             Tri par Époque
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="/invent/list/prehistoire">Préhistoire</a>
-            <a class="dropdown-item" href="/invent/list/antiquite">Antiquité</a>
-            <a class="dropdown-item" href="/invent/list/moyenage">Moyen Âge</a>
-            <a class="dropdown-item" href="/invent/list/moderne">Époque Moderne</a>
-            <a class="dropdown-item" href="/invent/list/contemporaine">Époque Contemporaine</a>
-            <a class="dropdown-item" href="/invent/list/">Toutes les époques</a>
+            <a class="dropdown-item" href="{{ path('list_invention',{epoque: 'prehistoire'}) }}">Préhistoire</a>
+            <a class="dropdown-item" href="{{ path('list_invention',{epoque: 'antiquite'}) }}">Antiquité</a>
+            <a class="dropdown-item" href="{{ path('list_invention',{epoque: 'moyen age'}) }}">Moyen Âge</a>
+            <a class="dropdown-item" href="{{ path('list_invention',{epoque: 'moderne'}) }}">Époque Moderne</a>
+            <a class="dropdown-item" href="{{ path('list_invention',{epoque: 'contemporaine'}) }}">Époque Contemporaine</a>
+            <a class="dropdown-item" href="{{ path('list_invention') }}">Toutes les époques</a>
         </div>
     </div>
 
@@ -23,14 +23,14 @@
         <div class="card mb-3">
             <div class="row no-gutters">
                 <div class="col-md-4">
-                    <img src="{{ asset('img/inventions/'~ elem.img_url ~'') }}" class="card-img" alt="{{ elem.img_url }}">
+                    <img src="{{ asset('img/inventions/'~ elem.imgUrl ~'') }}" class="card-img" alt="{{ elem.imgUrl }}">
 
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
                         <h5 class="card-title">{{ elem.titre }}</h5>
                         <p class="card-text">{{ elem.extrait }}</p>
-                        <a href="/invent/{{ elem.id }}"><button type="button" class="btn btn-outline-warning">Détails</button></a>
+                        <a href="{{ path('detailsInvention',{'invent':elem.id}) }}"><button type="button" class="btn btn-outline-warning">Détails</button></a>
                     </div>
                 </div>
             </div>

@@ -26,87 +26,19 @@ class EventController extends AbstractController
         return $this->render('event/detailsEvent.html.twig', [ 'event' => $event ] );
     }
 
-    /**
-     * @Route("/list", name="listEvent")
-     * @return Response
-     */
-    public function listEvent()
-    {
-        $conn = $this->getDoctrine()->getConnection();
-        $sql = 'SELECT id, titre, extrait, detail, img_url FROM evenement';
-        $stmt = $conn->prepare($sql);
-        $stmt->execute();
-
-        return $this->render('event/listEvent.html.twig',['data'=>$stmt->fetchAll()]);
-    }
 
     /**
-     * @Route("/list/prehistoire", name="listEventPrehistoire")
+     * @Route("/list/{epoque}", name="list_event", defaults={"epoque" = null })
+     * @param string|null $epoque
      * @return Response
      */
-    public function filtreEventPrehistoire()
+    public function listEvent(string $epoque = null)
     {
-        $conn = $this->getDoctrine()->getConnection();
-        $sql = 'SELECT id, titre, extrait, detail, img_url FROM evenement WHERE epoque = \'préhistoire\'';
-        $stmt = $conn->prepare($sql);
-        $stmt->execute();
-
-        return $this->render('event/listEvent.html.twig',['data'=>$stmt->fetchAll()]);
-    }
-
-    /**
-     * @Route("/list/antiquite", name="listEventAntiquite")
-     * @return Response
-     */
-    public function filtreEventAntiquite()
-    {
-        $conn = $this->getDoctrine()->getConnection();
-        $sql = 'SELECT id, titre, extrait, detail, img_url FROM evenement WHERE epoque = \'antiquité\'';
-        $stmt = $conn->prepare($sql);
-        $stmt->execute();
-
-        return $this->render('event/listEvent.html.twig',['data'=>$stmt->fetchAll()]);
-    }
-
-    /**
-     * @Route("/list/moyenage", name="listEventMoyenAge")
-     * @return Response
-     */
-    public function filtreEventMoyenAge()
-    {
-        $conn = $this->getDoctrine()->getConnection();
-        $sql = 'SELECT id, titre, extrait, detail, img_url FROM evenement WHERE epoque = \'moyen age\'';
-        $stmt = $conn->prepare($sql);
-        $stmt->execute();
-
-        return $this->render('event/listEvent.html.twig',['data'=>$stmt->fetchAll()]);
-    }
-
-    /**
-     * @Route("/list/moderne", name="listEventModerne")
-     * @return Response
-     */
-    public function filtreEventModerne()
-    {
-        $conn = $this->getDoctrine()->getConnection();
-        $sql = 'SELECT id, titre, extrait, detail, img_url FROM evenement WHERE epoque = \'moderne\'';
-        $stmt = $conn->prepare($sql);
-        $stmt->execute();
-
-        return $this->render('event/listEvent.html.twig',['data'=>$stmt->fetchAll()]);
-    }
-
-    /**
-     * @Route("/list/contemporaine", name="listEventContemporaine")
-     * @return Response
-     */
-    public function filtreEventContemporaine()
-    {
-        $conn = $this->getDoctrine()->getConnection();
-        $sql = 'SELECT id, titre, extrait, detail, img_url FROM evenement WHERE epoque = \'contemporaine\'';
-        $stmt = $conn->prepare($sql);
-        $stmt->execute();
-
-        return $this->render('event/listEvent.html.twig',['data'=>$stmt->fetchAll()]);
+        $options = [];
+        if($epoque){
+            $options = ['epoque' => $epoque];
+        }
+        $events = $this->getDoctrine()->getRepository(Evenement::class)->findBy($options);
+        return $this->render('event/listEvent.html.twig',['data'=>$events]);
     }
 }

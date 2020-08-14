@@ -27,86 +27,17 @@ class InventController extends AbstractController
     }
 
     /**
-     * @Route("/list", name="listInvention")
+     * @Route("/list/{epoque}", name="list_invention", defaults={"epoque" = null})
+     * @param string|null $epoque
      * @return Response
      */
-    public function listInvention()
+    public function listInvention(string $epoque = null)
     {
-        $conn = $this->getDoctrine()->getConnection();
-        $sql = 'SELECT id, titre, extrait, detail, img_url FROM invention';
-        $stmt = $conn->prepare($sql);
-        $stmt->execute();
-
-        return $this->render('invent/listInvention.html.twig',['data'=>$stmt->fetchAll()]);
-    }
-
-    /**
-     * @Route("/list/prehistoire", name="listInventionPrehistoire")
-     * @return Response
-     */
-    public function filtreInventionPrehistoire()
-    {
-        $conn = $this->getDoctrine()->getConnection();
-        $sql = 'SELECT id, titre, extrait, detail, img_url FROM invention WHERE epoque = \'préhistoire\'';
-        $stmt = $conn->prepare($sql);
-        $stmt->execute();
-
-        return $this->render('invent/listInvention.html.twig',['data'=>$stmt->fetchAll()]);
-    }
-
-    /**
-     * @Route("/list/antiquite", name="listInventionAntiquite")
-     * @return Response
-     */
-    public function filtreInventionAntiquite()
-    {
-        $conn = $this->getDoctrine()->getConnection();
-        $sql = 'SELECT id, titre, extrait, detail, img_url FROM invention WHERE epoque = \'antiquité\'';
-        $stmt = $conn->prepare($sql);
-        $stmt->execute();
-
-        return $this->render('invent/listInvention.html.twig',['data'=>$stmt->fetchAll()]);
-    }
-
-    /**
-     * @Route("/list/moyenage", name="listInventionMoyenAge")
-     * @return Response
-     */
-    public function filtreInventionMoyenage()
-    {
-        $conn = $this->getDoctrine()->getConnection();
-        $sql = 'SELECT id, titre, extrait, detail, img_url FROM invention WHERE epoque = \'moyen age\'';
-        $stmt = $conn->prepare($sql);
-        $stmt->execute();
-
-        return $this->render('invent/listInvention.html.twig',['data'=>$stmt->fetchAll()]);
-    }
-
-    /**
-     * @Route("/list/moderne", name="listInventionModerne")
-     * @return Response
-     */
-    public function filtreInventionModerne()
-    {
-        $conn = $this->getDoctrine()->getConnection();
-        $sql = 'SELECT id, titre, extrait, detail, img_url FROM invention WHERE epoque = \'moderne\'';
-        $stmt = $conn->prepare($sql);
-        $stmt->execute();
-
-        return $this->render('invent/listInvention.html.twig',['data'=>$stmt->fetchAll()]);
-    }
-
-    /**
-     * @Route("/list/contemporaine", name="listInventionContemporaine")
-     * @return Response
-     */
-    public function filtreInventionContemporaine()
-    {
-        $conn = $this->getDoctrine()->getConnection();
-        $sql = 'SELECT id, titre, extrait, detail, img_url FROM invention WHERE epoque = \'contemporaine\'';
-        $stmt = $conn->prepare($sql);
-        $stmt->execute();
-
-        return $this->render('invent/listInvention.html.twig',['data'=>$stmt->fetchAll()]);
+        $options =[];
+        if($epoque){
+            $options = ['epoque' => $epoque];
+        }
+        $inventions = $this->getDoctrine()->getRepository(Invention::class)->findBy($options);
+        return $this->render('invent/listInvention.html.twig', ['data'=>$inventions]);
     }
 }

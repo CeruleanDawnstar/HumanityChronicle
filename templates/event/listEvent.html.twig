@@ -10,12 +10,12 @@
             Tri par Époque
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="/event/list/prehistoire">Préhistoire</a>
-            <a class="dropdown-item" href="/event/list/antiquite">Antiquité</a>
-            <a class="dropdown-item" href="/event/list/moyenage">Moyen Âge</a>
-            <a class="dropdown-item" href="/event/list/moderne">Époque Moderne</a>
-            <a class="dropdown-item" href="/event/list/contemporaine">Époque Contemporaine</a>
-            <a class="dropdown-item" href="/event/list/">Toutes les epoques</a>
+            <a class="dropdown-item" href="{{ path('list_event',{epoque: 'prehistoire'}) }}">Préhistoire</a>
+            <a class="dropdown-item" href="{{ path('list_event',{epoque: 'antiquite'}) }}">Antiquité</a>
+            <a class="dropdown-item" href="{{ path('list_event',{epoque: 'moyen age'}) }}">Moyen Âge</a>
+            <a class="dropdown-item" href="{{ path('list_event',{epoque: 'moderne'}) }}">Époque Moderne</a>
+            <a class="dropdown-item" href="{{ path('list_event',{epoque: 'contemporaine'}) }}">Époque Contemporaine</a>
+            <a class="dropdown-item" href="{{ path('list_event') }}">Toutes les epoques</a>
         </div>
     </div>
 
@@ -23,13 +23,13 @@
         <div class="card mb-3">
             <div class="row no-gutters">
                 <div class="col-md-4">
-                    <img src="{{ asset('img/events/'~ elem.img_url ~'') }}" class="card-img" alt="{{ elem.img_url }}">
+                    <img src="{{ asset('img/events/'~ elem.imgUrl ~'') }}" class="card-img" alt="{{ elem.imgUrl }}">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
                         <h5 class="card-title"> {{ elem.titre }}</h5>
                         <p class="card-text">{{ elem.extrait }}</p>
-                        <a href="/event/{{ elem.id }}"><button type="button" class="btn btn-outline-warning">Détails</button></a>
+                        <a href="{{ path('detailsEvent',{'event':elem.id}) }}"><button type="button" class="btn btn-outline-warning">Détails</button></a>
                     </div>
                 </div>
             </div>

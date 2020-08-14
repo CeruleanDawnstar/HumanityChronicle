@@ -43,7 +43,7 @@ class Personnalite
     private $imgUrl;
 
     /**
-     * @ORM\OneToOne(targetEntity=Invention::class, inversedBy="personnalites", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=Invention::class, inversedBy="personnalite", cascade={"persist", "remove"})
      */
     private $invention;
 
@@ -64,24 +64,24 @@ class Personnalite
         return $this;
     }
 
-    public function getDateNaissance(): ?int
+    public function getDateNaissance(): ?string
     {
         return $this->dateNaissance;
     }
 
-    public function setDateNaissance(int $dateNaissance): self
+    public function setDateNaissance(string $dateNaissance): self
     {
         $this->dateNaissance = $dateNaissance;
 
         return $this;
     }
 
-    public function getDateDeces(): ?int
+    public function getDateDeces(): ?string
     {
         return $this->dateDeces;
     }
 
-    public function setDateDeces(?int $dateDeces): self
+    public function setDateDeces(?string $dateDeces): self
     {
         $this->dateDeces = $dateDeces;
 
