@@ -45,6 +45,6 @@ class PersonnaliteController extends AbstractController
      */
     public function detailPersonnalite(Personnalite $personnalite)
     {
-        return $this->render('personnalite/detailsPersonnalite.html.twig', ['personnalite' => $personnalite]);
+        return $this->render('personnalite/detailsPersonnalite.html.twig', ['personality' => $personnalite]);
     }
 }

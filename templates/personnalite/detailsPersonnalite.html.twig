@@ -1,0 +1,38 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Détail de personnalité{% endblock %}
+
+{% block body %}
+    <h3>Details personnalité</h3>
+
+    <div class="card mb-3">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="{{ asset('img/personnalites/'~  personality.imgUrl ~'') }}" class="card-img" alt="{{ personality.imgUrl }}">
+
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{ personality.nom }} - {{ personality.dateNaissance }} - {{ personality.dateDeces }}</h5>
+                    <p class="card-text">{{ personality.biographie }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% set invention = personality.invention %}
+    <div class="card mb-3">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="{{ asset('img/inventions/'~ invention.imgUrl ~'') }}" class="card-img" alt="{{ invention.imgUrl }}">
+
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{ invention.titre }}</h5>
+                    <p class="card-text">{{ invention.extrait }}</p>
+                    <a href="{{ path('detailsInvention',{'invent':invention.id}) }}"><button type="button" class="btn btn-outline-warning">Détails</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
