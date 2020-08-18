@@ -21,6 +21,23 @@
         </div>
     </div>
 
+    {% set personality = invention.personnalite %}
+    <div class="card mb-3">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="{{ asset('img/personnalites/'~ personality.imgUrl ~'') }}" class="card-img" alt="{{ personality.imgUrl }}">
+
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{ personality.nom }} - {{ personality.dateNaissance }} - {{ personality.dateDeces }}</h5>
+                    <p class="card-text">{{ personality.biographie }}</p>
+                    <a href="{{ path('detailsPersonnalite',{'personnalite':personality.id}) }}"><button type="button" class="btn btn-outline-warning">Détails</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
             <h3>Titre</h3>
