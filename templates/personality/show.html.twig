@@ -13,7 +13,23 @@
             </tr>
             <tr>
                 <th>ImgUrl</th>
-                <td>{{ personality.imgUrl }}</td>
+                <td><img src="{{ asset('img/personnalites/'~ personality.imgUrl) }}" alt="{{ personality.nom }}" width="150"></td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ personality.nom }}</td>
+            </tr>
+            <tr>
+                <th>Date de naissance</th>
+                <td>{{ personality.dateNaissance }}</td>
+            </tr>
+            <tr>
+                <th>Date de décès</th>
+                <td>{{ personality.dateDeces }}</td>
+            </tr>
+            <tr>
+                <th>Biographie</th>
+                <td>{{ personality.biographie }}</td>
             </tr>
 
         </tbody>

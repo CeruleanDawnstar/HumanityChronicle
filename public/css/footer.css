@@ -23,6 +23,11 @@
     margin-right: 5%;
 }
 
+input#newsletter.form-control {
+    width: 45%;
+    margin-bottom: 10%;
+}
+
 /* Page Contact*/
 label#labeltitremsg, label#labelmsg {
     margin-top: 15px;
@@ -49,4 +54,6 @@ input#inputtitremsg, textarea#textareamsg {
     margin-left: 5%;
     margin-right: 5%;
 }
+
+
 
