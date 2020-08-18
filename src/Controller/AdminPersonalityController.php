@@ -2,10 +2,8 @@
 
 namespace App\Controller;
 
-use App\Entity\Personality;
 use App\Entity\Personnalite;
 use App\Form\PersonalityType;
-use App\Repository\PersonalityRepository;
 use App\Repository\PersonnaliteRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
