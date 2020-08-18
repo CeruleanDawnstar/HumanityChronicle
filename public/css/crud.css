@@ -11,3 +11,8 @@ button.btn {
 label {
     color: #c2a46d;
 }
+
+div.form-group.row {
+    width: 70%;
+    margin-left: 5%;
+}
