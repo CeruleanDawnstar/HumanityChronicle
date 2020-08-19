@@ -38,7 +38,7 @@ class Personnalite
     private $biographie;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $imgUrl;
 
@@ -46,6 +46,16 @@ class Personnalite
      * @ORM\OneToOne(targetEntity=Invention::class, inversedBy="personnalite", cascade={"persist", "remove"})
      */
     private $invention;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $bio;
+
+    /**
+     * @ORM\Column(type="string", length=50, nullable=true)
+     */
+    private $epoque;
 
     public function getId(): ?int
     {
@@ -120,6 +130,30 @@ class Personnalite
     public function setInvention(?Invention $invention): self
     {
         $this->invention = $invention;
+
+        return $this;
+    }
+
+    public function getBio(): ?string
+    {
+        return $this->bio;
+    }
+
+    public function setBio(string $bio): self
+    {
+        $this->bio = $bio;
+
+        return $this;
+    }
+
+    public function getEpoque(): ?string
+    {
+        return $this->epoque;
+    }
+
+    public function setEpoque(?string $epoque): self
+    {
+        $this->epoque = $epoque;
 
         return $this;
     }
