@@ -40,8 +40,8 @@ security:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
 
-        # ou a besoin de ROLE_ADMIN ou IS_AUTHENTICATED_FULLY pour /admin
-        - { path: '^/admin', roles: [IS_AUTHENTICATED_FULLY, ROLE_ADMIN] }
+        # ou a besoin de ROLE_USER ou IS_AUTHENTICATED_FULLY pour /admin
+        - { path: '^/admin', roles: [IS_AUTHENTICATED_FULLY, ROLE_USER] }
 
         # a besoin d'être IS_AUTHENTICATED_FULLY pour la route /register
         - { path: '^/register', roles: [IS_AUTHENTICATED_FULLY] }

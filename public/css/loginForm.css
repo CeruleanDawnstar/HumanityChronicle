@@ -10,3 +10,12 @@
 #labelemail, #labelpassword, #inputEmail, #inputPassword, #submit {
     margin-left: 5%;
 }
+
+button#registerbtn.btn {
+    margin-left: 5%;
+    margin-bottom: 10%;
+}
+
+input#registration_form_plainPassword.form-control, input#registration_form_email.form-control {
+    width: 40%;
+}
