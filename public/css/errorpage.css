@@ -1,3 +1,4 @@
+/*page 404*/
 p#p404 {
     text-align: center;
 
@@ -8,6 +9,24 @@ a#a404 {
 }
 
 img#404img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+    margin-bottom: 10%;
+}
+
+/*page 403*/
+p#p403 {
+    text-align: center;
+
+}
+
+a#a403 {
+    color: #ffc107;
+}
+
+img#403img {
     display: block;
     margin-left: auto;
     margin-right: auto;

@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="jumbotron jumbotron-fluid">
+        <h3>Accès Interdit</h3>
+
+        <p id="p403">
+            Vous n'avez pas accès à cette page.
+        </p>
+
+        <p id="p403">
+            Veuillez retournez à la page précédente ou la <a id="a403" href="{{ path('accueil') }}">page d'accueil</a>
+        </p>
+        <img src="{{ asset('img/gandalf.jpg') }}" id="403img" alt="gandalf">
+    </div>
+{% endblock %}
