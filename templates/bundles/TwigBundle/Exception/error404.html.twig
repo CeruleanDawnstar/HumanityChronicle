@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="jumbotron jumbotron-fluid">
+    <h3>Page non trouvé</h3>
+
+    <p id="p404">
+        Hmmm... on dirat que la page que vous cherchez n'existe pas.
+    </p>
+    <p id="p404">
+        Vérifiez l'URL pour des fautes de frappes ou <a id="a404" href="{{ path('accueil') }}">retournez à la page d'accueil</a>
+    </p>
+        <img src="{{ asset('img/404img.jpg') }}" id="404img" alt="404img">
+    </div>
+{% endblock %}
