@@ -46,4 +46,4 @@ security:
         # a besoin d'être IS_AUTHENTICATED_FULLY pour la route /register
         - { path: '^/register', roles: [IS_AUTHENTICATED_FULLY] }
 
-        - { path: ^/api/(post|comment)/\d+$, roles : ROLE_USER }
+#        - { path: ^/api/(post|comment)/\d+$, roles : ROLE_USER }
