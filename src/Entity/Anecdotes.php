@@ -32,6 +32,11 @@ class Anecdotes
      */
     private $imgUrl;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Evenement::class, inversedBy="anecdotes")
+     */
+    private $relation;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +74,18 @@ class Anecdotes
     public function setImgUrl(string $imgUrl): self
     {
         $this->imgUrl = $imgUrl;
+
+        return $this;
+    }
+
+    public function getRelation(): ?Evenement
+    {
+        return $this->relation;
+    }
+
+    public function setRelation(?Evenement $relation): self
+    {
+        $this->relation = $relation;
 
         return $this;
     }

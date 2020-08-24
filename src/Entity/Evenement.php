@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\EvenementRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -41,6 +43,16 @@ class Evenement
      * @ORM\Column(type="string", length=50)
      */
     private $epoque;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Anecdotes::class, mappedBy="relation")
+     */
+    private $anecdotes;
+
+    public function __construct()
+    {
+        $this->anecdotes = new ArrayCollection();
+    }
 
 
     public function getId(): ?int
@@ -109,6 +121,37 @@ class Evenement
     public function setImgUrl(string $imgUrl): self
     {
         $this->imgUrl = $imgUrl;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Anecdotes[]
+     */
+    public function getAnecdotes(): Collection
+    {
+        return $this->anecdotes;
+    }
+
+    public function addAnecdote(Anecdotes $anecdote): self
+    {
+        if (!$this->anecdotes->contains($anecdote)) {
+            $this->anecdotes[] = $anecdote;
+            $anecdote->setRelation($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAnecdote(Anecdotes $anecdote): self
+    {
+        if ($this->anecdotes->contains($anecdote)) {
+            $this->anecdotes->removeElement($anecdote);
+            // set the owning side to null (unless already changed)
+            if ($anecdote->getRelation() === $this) {
+                $anecdote->setRelation(null);
+            }
+        }
 
         return $this;
     }
