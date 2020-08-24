@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\AnecdotesRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\JoinColumn;
 
 /**
  * @ORM\Entity(repositoryClass=AnecdotesRepository::class)
@@ -34,6 +35,7 @@ class Anecdotes
 
     /**
      * @ORM\ManyToOne(targetEntity=Evenement::class, inversedBy="anecdotes")
+     * @JoinColumn(name="relation_id", referencedColumnName="id")
      */
     private $relation;
 

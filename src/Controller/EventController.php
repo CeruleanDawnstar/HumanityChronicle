@@ -4,6 +4,7 @@
 namespace App\Controller;
 
 
+use App\Entity\Anecdotes;
 use App\Entity\Evenement;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,6 +24,7 @@ class EventController extends AbstractController
      */
     public function detailEvent(Evenement $event)
     {
+//        $events = $this->getDoctrine()->getRepository(Evenement::class)->findAll();
         return $this->render('event/detailsEvent.html.twig', [ 'event' => $event ] );
     }
 
@@ -39,6 +41,6 @@ class EventController extends AbstractController
             $options = ['epoque' => $epoque];
         }
         $events = $this->getDoctrine()->getRepository(Evenement::class)->findBy($options);
-        return $this->render('event/listEvent.html.twig',['data'=>$events]);
+        return $this->render('event/listEvent.html.twig',['data' => $events]);
     }
 }

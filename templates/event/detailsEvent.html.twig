@@ -28,4 +28,23 @@
             <a href="/event/list"><button type="button" class="btn btn-outline-warning">Retour à la liste</button></a>
         </div>
     </div>
+
+    {% for anecdotes in event.anecdotes %}
+
+    <div class="card mb-3">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="{{ asset('img/anecdotes/'~ anecdotes.imgUrl) }}" class="card-img" alt="{{ anecdotes.imgUrl }}">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title"> {{ anecdotes.titre }}</h5>
+                    <p class="card-text">{{ anecdotes.anecdote }}</p>
+
+                    {#                    <a href="/event/list"><button type="button" class="btn btn-outline-warning">Retour à la liste</button></a>#}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}
 {% endblock %}

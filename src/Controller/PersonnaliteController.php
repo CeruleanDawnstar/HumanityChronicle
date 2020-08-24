@@ -6,6 +6,7 @@ namespace App\Controller;
 
 use App\Entity\Personnalite;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -15,22 +16,9 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class PersonnaliteController extends AbstractController
 {
-//    /**
-//     * @Route("/list", name="personnalite")
-//     */
-//    public function listPersonnalite()
-//    {
-//        $conn = $this->getDoctrine()->getConnection();
-//        $sql = 'SELECT id, nom, date_naissance, date_deces, biographie, img_url FROM personnalite';
-//        $stmt = $conn->prepare($sql);
-//        $stmt->execute();
-//
-//        return $this->render('personnalite/personnalitelist.html.twig', ['data'=>$stmt->fetchAll()]);
-//    }
-
     /**
      * @Route("/list", name="personnalite")
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
     public function listPersonnalite()
     {
@@ -41,7 +29,7 @@ class PersonnaliteController extends AbstractController
     /**
      * @Route("/{personnalite}", name="detailsPersonnalite", requirements={"personnalite"="\d+"})
      * @param Personnalite $personnalite
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
     public function detailPersonnalite(Personnalite $personnalite)
     {
