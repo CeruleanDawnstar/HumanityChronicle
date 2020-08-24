@@ -16,14 +16,6 @@ class ChroniqueController extends AbstractController
     }
 
     /**
-     * @Route("/anecdote", name="anecdote")
-     */
-    public function affPageAnecdote()
-    {
-        return $this->render('accueil/anecdote.html.twig');
-    }
-
-    /**
      * @Route("/contact", name="contact")
      */
     public function affPageContact()

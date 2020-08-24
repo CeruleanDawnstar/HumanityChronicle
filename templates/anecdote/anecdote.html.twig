@@ -1,0 +1,27 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Anecdotes{% endblock %}
+
+{% block body %}
+
+    <h3>Anecdotes</h3>
+
+    {% for elem in data %}
+        <div class="card mb-3">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img src="{{ asset('img/anecdotes/'~ elem.imgUrl ~'') }}" class="card-img" alt="{{ elem.imgUrl }}">
+
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ elem.titre }}</h5>
+                        <p class="card-text">{{ elem.anecdote }}</p>
+{#                        <a href="{{ path('detailsInvention',{'invent':elem.id}) }}"><button type="button" class="btn btn-outline-warning">Détails</button></a>#}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    {% endfor %}
+{% endblock %}
